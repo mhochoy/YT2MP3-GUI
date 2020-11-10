@@ -1,7 +1,6 @@
 # YT2MP3-GUI
  A simple YouTube to MP3 tool with a UI
 
-# CLASSES - :
   - LAYOUTS: Represents the properties of each third (Top, Middle, Bottom) of the layout
 
   - ELEMENTS: Represents single elements not used in a layout
