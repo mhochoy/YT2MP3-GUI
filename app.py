@@ -1,62 +1,31 @@
-import PySimpleGUI as ui
 import main
-
-# Top
-
-title = ui.Text('Youtube to MP3')
-
-top = [
-    [title]
-]
-
-# Middle
-
-url_prompt = ui.Text('Enter URL')
-url_input = ui.InputText()
-url_confirm = ui.Button('Get')
-
-url_row = [
-    [url_prompt, url_input, url_confirm]
-]
-
-middle = [
-    ui.Text(),
-    url_row
-]
-
-# Bottom
-
-close_button = ui.Button("Close")
-
-bottom = [
-    [close_button]
-]
-
-layout = [
-    [title],
-    [url_prompt, url_input, url_confirm],
-    [ui.Output(size=(80, 10))],
-    [close_button]
-]
+import layout
+import options
+import window
 
 
 def App():
-    window = ui.Window("YT2MP3", layout)
+    # Building window according to layout, which contains a List of Elements. 
+    app_window = window.window
 
     while True:
-        event, values = window.read(timeout=100)
+        # This program runs Asynchronously
+        event, values = app_window.read(timeout=100)
+
+        # On event confirming conversion request
         if event == "Get":
             try:
-                link = url_input.Get()
+                link = layout.middle.url_input.Get()
                 print("Getting MP3...")
-                main.main(link)
-                print("Finished!")
-                window.Refresh()
+                main.grab(link)
+
+            # Must change
             except Exception as e:
                 print(e)
-
-        if event in (window.WasClosed, 'Close'):
+        
+        # On event confirming close of window
+        if event in ('Close'):
             break
-        window.Refresh()
+        app_window.Refresh()
 
-    window.close()
+    app_window.close()

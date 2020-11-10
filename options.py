@@ -2,7 +2,7 @@ from classes import logger
 from helpers import my_hook
 import os
 
-SAVE_PATH = '/'.join(os.getcwd().split('/')[:3]) + '/Downloads'
+SAVE_PATH = '/'.join(os.getcwd().split('/')[:3]) + '/MP3s' 
 
 ydl_opts = {
 

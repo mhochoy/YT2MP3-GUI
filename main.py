@@ -4,10 +4,12 @@ from youtube_dl.utils import ExtractorError
 from options import ydl_opts
 
 
-def main(link):
-    dl = yt.YoutubeDL(ydl_opts)
+def grab(link):
+    # Initialize the Downloader with YDL config options
+    downloader = yt.YoutubeDL(ydl_opts)
     try:
-        dl.download([link])
+        # Where the magic happens
+        downloader.download([link])
 
     except UnavailableVideoError:
         print("Video is unavailable")
