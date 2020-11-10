@@ -15,6 +15,6 @@
 
 - OPTIONS.py: Configuration dictionary for YDL
 
-- APP.py: Builds the application
+- APP.py: Handles the building and events of the application
 
 - MAIN.py: Handles grabbing the MP3 from YouTube through YDL+LIBAV
