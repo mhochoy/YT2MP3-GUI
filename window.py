@@ -1,8 +1,9 @@
 import PySimpleGUI as ui
-import layout
+from .layout import layout
 
-window = ui.Window("YT2MP3", layout.layout)
+window = ui.Window("YT2MP3", layout)
 
-def change_layout(layout: list):
+
+def change_layout(_layout: list):
     # Soon to be depreciated!
-    window.Layout(layout)
+    window.Layout(_layout)

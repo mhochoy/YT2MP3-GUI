@@ -1,7 +1,7 @@
 import youtube_dl as yt
 from youtube_dl.YoutubeDL import UnavailableVideoError, MaxDownloadsReached
 from youtube_dl.utils import ExtractorError
-from options import ydl_opts
+from .options import ydl_opts
 
 
 def grab(link):

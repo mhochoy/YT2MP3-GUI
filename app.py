@@ -1,12 +1,11 @@
-import main
-import layout
-import options
-import window
+from .main import grab
+from .layout import middle as middle_row
+from .window import window
 
 
 def App():
     # Building window according to layout, which contains a List of Elements. 
-    app_window = window.window
+    app_window = window
 
     while True:
         # This program runs Asynchronously
@@ -15,9 +14,9 @@ def App():
         # On event confirming conversion request
         if event == "Get":
             try:
-                link = layout.middle.url_input.Get()
+                link = middle_row.url_input.Get()
                 print("Getting MP3...")
-                main.grab(link)
+                grab(link)
 
             # Must change
             except Exception as e:
